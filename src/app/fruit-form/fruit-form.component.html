@@ -1,0 +1,39 @@
+<h3>Dodaj nowy owoc</h3>
+    
+<form #fruitForm="ngForm" (ngSubmit)="onSubmit(fruitForm)">
+  
+
+    <div>
+      <label>Nazwa: </label>
+      <input type="text" [(ngModel)]="name" name="name" #nameModel="ngModel" required minlength="3" maxlength="20" />
+      
+   
+      <div *ngIf="nameModel.invalid && (nameModel.dirty || nameModel.touched)" style="color: red;">
+        <small *ngIf="nameModel.errors?.['required']">Nazwa jest wymagana! </small>
+        <small *ngIf="nameModel.errors?.['minlength']">Nazwa musi mieć minimum 3 znaki! </small>
+      </div>
+    </div>
+
+    <div>
+      <label>Waga (g): </label>
+      <input type="number" [(ngModel)]="weight" name="weight" #weightModel="ngModel" required min="1" max="5000" />
+      
+  
+      <div *ngIf="weightModel.invalid && (weightModel.dirty || weightModel.touched)" style="color: red;">
+        <small *ngIf="weightModel.errors?.['required']">Waga jest wymagana! </small>
+        <small *ngIf="weightModel.errors?.['min']">Waga musi być większa niż 0 g! </small>
+      </div>
+    </div>
+  
+
+    <div>
+      <label>Data zbioru: </label>
+      <input type="date" [(ngModel)]="harvestDate" name="harvestDate" #dateModel="ngModel" required />
+
+      <div *ngIf="dateModel.invalid && (dateModel.dirty || dateModel.touched)" style="color: red;">
+        <small *ngIf="dateModel.errors?.['required']">Musisz wybrać datę! </small>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="fruitForm.invalid">Zapisz owoc</button>
+  </form>

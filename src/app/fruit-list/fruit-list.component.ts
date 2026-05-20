@@ -2,17 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Fruit } from '../fruit';
 import { FruitService } from '../fruit.service';
+import { FruitFormComponent } from '../fruit-form/fruit-form.component';
 
 @Component({
   selector: 'app-fruit-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,FruitFormComponent],
   templateUrl: './fruit-list.component.html',
 })
 export class FruitListComponent implements OnInit {
 
   fruits: Fruit[] = [];
-
+  showForm: boolean = false;
  
   constructor(private fruitService: FruitService) {}
 
@@ -30,5 +31,9 @@ export class FruitListComponent implements OnInit {
   deleteFruit(id: number): void {
     this.fruitService.deleteFruit(id); 
     this.loadFruits();                
+  }
+  onFruitAdded(): void {
+    this.loadFruits();       // Odświeżamy listę owoców
+    this.showForm = false;   // Ukrywamy formularz po dodaniu owocu
   }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Fruit } from './fruit';
 import { FruitOperations } from './fruit-operations';
-
+import { FruitTrackingService } from './fruit-tracking.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,9 +15,10 @@ export class FruitService implements FruitOperations {
     { id: 4, name: 'Truskawka', weight: 15, harvestDate: new Date('2026-05-18') },
     { id: 5, name: 'Arbuz', weight: 3500, harvestDate: new Date('2026-05-20') }
   ];
-
+  constructor(private FruitTrackingService: FruitTrackingService) {}
 
   getFruits(): Fruit[] {
+    this.FruitTrackingService.updateLastFetchDate();
     return this.fruits;
   }
 
@@ -29,5 +30,6 @@ export class FruitService implements FruitOperations {
 
   deleteFruit(id: number): void {
     this.fruits = this.fruits.filter(f => f.id !== id);
+    this.FruitTrackingService.updateLastDeleteDate();
   }
 }

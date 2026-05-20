@@ -1,4 +1,11 @@
 <h2>Lista dostępnych owoców</h2>
+<button (click)="showForm = !showForm">
+    {{ showForm ? 'Anuluj' : 'Otwórz formularz' }}
+  </button>
+  
+  <div *ngIf="showForm" style="margin: 20px 0; padding: 15px; border: 1px solid #ccc;">
+    <app-fruit-form (fruitAdded)="onFruitAdded()"></app-fruit-form>
+  </div>
 
 <ul>
   <li *ngFor="let fruit of fruits">

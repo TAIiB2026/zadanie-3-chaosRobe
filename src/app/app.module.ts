@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FruitListComponent } from './fruit-list/fruit-list.component';
+import { FruitFormComponent } from './fruit-form/fruit-form.component';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { FruitListComponent } from './fruit-list/fruit-list.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FruitListComponent
+    FruitListComponent,
+    FruitFormComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { FruitTrackingService } from './fruit-tracking.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class AppComponent {
-
+  constructor(private FruitTrackingService: FruitTrackingService) {}
 }
