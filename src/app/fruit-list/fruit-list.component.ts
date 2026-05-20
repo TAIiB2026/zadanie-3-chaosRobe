@@ -33,7 +33,7 @@ export class FruitListComponent implements OnInit {
     this.loadFruits();                
   }
   onFruitAdded(): void {
-    this.loadFruits();       // Odświeżamy listę owoców
-    this.showForm = false;   // Ukrywamy formularz po dodaniu owocu
+    this.loadFruits();      
+    this.showForm = false;   
   }
 }
