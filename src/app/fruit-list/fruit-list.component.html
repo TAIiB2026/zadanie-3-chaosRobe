@@ -1,0 +1,16 @@
+<h2>Lista dostępnych owoców</h2>
+
+<ul>
+  <li *ngFor="let fruit of fruits">
+    <strong>ID:</strong> {{ fruit.id }} | 
+    <strong>Nazwa:</strong> {{ fruit.name }} | 
+    <strong>Waga:</strong> {{ fruit.weight }} g | 
+    
+    <strong>Data zbioru:</strong> {{ fruit.harvestDate | date:'mediumDate' }} 
+    
+    <button (click)="deleteFruit(fruit.id)">Usuń</button>
+  </li>
+</ul>
+
+
+<p *ngIf="fruits.length === 0">Brak owoców na liście!</p>
