@@ -2,12 +2,12 @@
     <h3>Status aplikacji:</h3>
     <p>
       <strong>Ostatnie pobranie listy: </strong> 
-      {{ (trackingService.lastFetchDate$ | async | date:'mediumTime') || 'Brak danych' }}
+      {{ (FruitTrackingService.lastFetchDate$ | async | date:'mediumTime') || 'Brak danych' }}
     </p>
     
     <p>
       <strong>Ostatnie usunięcie owocu: </strong> 
-      {{ (trackingService.lastDeleteDate$ | async | date:'mediumTime') || 'Nigdy nie usunięto' }}
+      {{ (FruitTrackingService.lastDeleteDate$ | async | date:'mediumTime') || 'Nigdy nie usunięto' }}
     </p>
   </div>
 <router-outlet></router-outlet>

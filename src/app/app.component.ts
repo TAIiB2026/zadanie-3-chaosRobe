@@ -7,5 +7,5 @@ import { FruitTrackingService } from './fruit-tracking.service';
   styles: []
 })
 export class AppComponent {
-  constructor(private FruitTrackingService: FruitTrackingService) {}
+  constructor(public FruitTrackingService: FruitTrackingService) {}
 }
